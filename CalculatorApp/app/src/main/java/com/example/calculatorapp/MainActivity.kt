@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import com.example.calculatorapp.databinding.ActivityMainBinding
+import java.lang.ArithmeticException
 
 class MainActivity : AppCompatActivity() {
 //    To activate ViewBinding
@@ -50,6 +51,59 @@ class MainActivity : AppCompatActivity() {
             false
         }else{
             value.contains("+") || value.contains("-") || value.contains("*") || value.contains("/")
+        }
+    }
+
+    private fun removeZeroAfterDecimalPoint( value : String) : String{
+        var result= value
+        if (value.contains(".0")){
+            result = value.substring(0, value.length-2)
+        }
+        return result
+    }
+
+    fun onEqual(view : View){
+        if(lastNumeric){
+            var tvValue = binding.tvInput.text.toString()
+            var prefix = ""
+            try {
+                if(tvValue.startsWith("-")){
+                    prefix="-"
+                    tvValue=tvValue.substring(1)
+                }
+                if(tvValue.contains("-")){
+                    var (one,two)=tvValue.split("-")
+                    if(!prefix.isEmpty()){
+                        one=prefix+one
+                    }
+                    binding.tvInput.text = removeZeroAfterDecimalPoint((one.toDouble()-two.toDouble()).toString())
+                }
+                else if(tvValue.contains("+")){
+                    var (one,two)=tvValue.split("+")
+                    if(!prefix.isEmpty()){
+                        one=prefix+one
+                    }
+                    binding.tvInput.text = removeZeroAfterDecimalPoint((one.toDouble()+two.toDouble()).toString())
+                }
+                else if(tvValue.contains("*")){
+                    var (one,two)=tvValue.split("*")
+                    if(!prefix.isEmpty()){
+                        one=prefix+one
+                    }
+                    binding.tvInput.text = removeZeroAfterDecimalPoint((one.toDouble()*two.toDouble()).toString())
+                }
+                else if(tvValue.contains("/")){
+                    var (one,two)=tvValue.split("/")
+                    if(!prefix.isEmpty()){
+                        one=prefix+one
+                    }
+                    binding.tvInput.text = removeZeroAfterDecimalPoint((one.toDouble()/two.toDouble()).toString())
+                }
+
+            }
+            catch (e : ArithmeticException){
+                e.printStackTrace()
+            }
         }
     }
 

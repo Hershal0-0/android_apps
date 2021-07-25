@@ -16,6 +16,9 @@
         android:background="#efefef"
         android:textSize="48sp"
         android:maxLength="12"
+        android:padding="10dp"
+        android:gravity="right|center_vertical|bottom"
+        android:text="Hello"
         />
 <!--    ROW 1-->
     <LinearLayout
@@ -271,6 +274,7 @@
             android:layout_height="match_parent"
             android:backgroundTint="@color/button_back"
             android:text="="
+            android:onClick="onEqual"
             android:textColor="@color/black"
             />
     </LinearLayout>
