@@ -70,7 +70,7 @@
             android:backgroundTint="@color/button_back"
             android:text="/"
             android:textColor="@color/black"
-            android:onClick="onDigit"
+            android:onClick="onOperator"
             android:layout_marginLeft="2dp"
             android:layout_marginRight="2dp"
             />
@@ -130,7 +130,7 @@
             android:backgroundTint="@color/button_back"
             android:text="*"
             android:textColor="@color/black"
-            android:onClick="onDigit"
+            android:onClick="onOperator"
             android:layout_marginLeft="2dp"
             android:layout_marginRight="2dp"
             />
@@ -190,7 +190,7 @@
             android:backgroundTint="@color/button_back"
             android:text="-"
             android:textColor="@color/black"
-            android:onClick="onDigit"
+            android:onClick="onOperator"
             android:layout_marginLeft="2dp"
             android:layout_marginRight="2dp"
             />
@@ -214,7 +214,7 @@
             android:backgroundTint="@color/button_back"
             android:text="."
             android:textColor="@color/black"
-            android:onClick="onDigit"
+            android:onClick="onDecimalPoint"
             android:layout_marginLeft="2dp"
             android:layout_marginRight="2dp"
             />
@@ -250,7 +250,7 @@
             android:backgroundTint="@color/button_back"
             android:text="+"
             android:textColor="@color/black"
-            android:onClick="onDigit"
+            android:onClick="onOperator"
             android:layout_marginLeft="2dp"
             android:layout_marginRight="2dp"
             />
